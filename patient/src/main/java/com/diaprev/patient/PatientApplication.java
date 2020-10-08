@@ -1,13 +1,13 @@
-package com.mediscreen.diaprev;
+package com.diaprev.patient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DiaprevApplication {
+public class PatientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DiaprevApplication.class, args);
+		SpringApplication.run(PatientApplication.class, args);
 	}
 
 }

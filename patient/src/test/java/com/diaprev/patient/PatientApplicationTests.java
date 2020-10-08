@@ -1,10 +1,10 @@
-package com.mediscreen.diaprev;
+package com.diaprev.patient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DiaprevApplicationTests {
+class PatientApplicationTests {
 
 	@Test
 	void contextLoads() {
