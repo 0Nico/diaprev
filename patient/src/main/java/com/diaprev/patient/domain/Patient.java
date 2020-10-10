@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +22,7 @@ import lombok.Setter;
 public class Patient {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id;
 	
 	@NotBlank(message = "First Name is mandatory")
@@ -28,8 +31,9 @@ public class Patient {
 	@NotBlank(message = "Last Name is mandatory")
 	private String lastName;
 	
-	@Past(message = "BirthDate is mandatory")
-	private Date birthdate;
+	@Past(message = "BirthDate can not be in the future")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date birthDate;
 	
 	@NotBlank(message = "adress is mandatory")
 	private String adress;

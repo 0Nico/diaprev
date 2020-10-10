@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.diaprev.patient.domain.Patient;
 import com.diaprev.patient.service.PatientService;
@@ -66,5 +67,14 @@ public class PatientController {
     	patientService.deletePatient(id);
         model.addAttribute("patients", patientService.getAllPatients());
         return "redirect:/patient/list";
+    }
+    
+    @GetMapping("/error")
+    public ModelAndView error() {
+        ModelAndView mav = new ModelAndView();
+        String errorMessage= "You are not authorized for the requested data.";
+        mav.addObject("errorMsg", errorMessage);
+        mav.setViewName("403");
+        return mav;
     }
 }
