@@ -1,0 +1,14 @@
+version: '3'
+services:
+  patient:
+    build:
+        context: ./patient/
+        dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    restart: always
+    
+ 
+    
+  
+

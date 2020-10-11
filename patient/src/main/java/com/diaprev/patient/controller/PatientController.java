@@ -22,7 +22,7 @@ public class PatientController {
     private PatientService patientService;
 
     @RequestMapping("/patient/list")
-    public String home(Model model)
+    public String homePatient(Model model)
     {
         model.addAttribute("patients", patientService.getAllPatients());
         return "patient/list";
@@ -77,4 +77,10 @@ public class PatientController {
         mav.setViewName("403");
         return mav;
     }
+    
+    @RequestMapping("/")
+	public String home(Model model)
+	{
+		return "home";
+	}
 }
