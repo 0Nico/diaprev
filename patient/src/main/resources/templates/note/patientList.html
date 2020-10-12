@@ -11,7 +11,7 @@
 
 	<div class="row"><h2>Patient Notes History</h2></div>
 	<div class="row">
-		<a th:href="@{/note/add(patientId=${patientId})}" class="btn btn-primary btn-sm">Add New</a>
+		<a th:href="@{/note/add(patientId=${patientId})}" class="btn btn-primary btn-sm">Add New</a><a th:href="@{/assessment(patientId=${patientId})}" class="btn btn-info btn-sm">Get Assessment</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
