@@ -3,6 +3,7 @@ services:
   patient:
     environment:
         - CLIENT_NOTE_BASE_URL=http://notes:8082/
+        - CLIENT_ASSESSMENT_BASE_URL=http://assessment:8083/assessment
     build:
         context: ./patient/
         dockerfile: Dockerfile
@@ -20,6 +21,13 @@ services:
       - "8082:8082"
     restart: always
     
+  assessment:
+    build:
+        context: ./assessment/
+        dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    restart: always
  
     
   
