@@ -1,11 +1,23 @@
 version: '3'
 services:
   patient:
+    environment:
+        - CLIENT_NOTE_BASE_URL=http://notes:8082/
     build:
         context: ./patient/
         dockerfile: Dockerfile
     ports:
       - "8081:8081"
+    restart: always
+    
+  notes:
+    environment:
+        - CLIENT_PATIENT_BASE_URL=http://patient:8081/
+    build:
+        context: ./notes/
+        dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
     restart: always
     
  
