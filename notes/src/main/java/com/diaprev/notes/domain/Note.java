@@ -22,6 +22,6 @@ public class Note {
 	private String corps;
 	
 	@NotNull(message = "A note must be related with a patient")
-	private int patientId;
+	private Integer patientId;
 
 }

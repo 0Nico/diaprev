@@ -2,8 +2,12 @@ version: '3'
 services:
   patient:
     environment:
-        - CLIENT_NOTE_BASE_URL=http://notes:8082/
+        - CLIENT_NOTE_BASE_URL=http://notes:8082/patHistory
         - CLIENT_ASSESSMENT_BASE_URL=http://assessment:8083/assessment
+        - DB_Username=admin_webpay
+        - DB_Password=passw0rd
+        - DB_HOST=dbpatient
+        - DB_PORT=3306
     build:
         context: ./patient/
         dockerfile: Dockerfile
@@ -13,7 +17,8 @@ services:
     
   notes:
     environment:
-        - CLIENT_PATIENT_BASE_URL=http://patient:8081/
+        - DATABASE_HOST=dbnote
+        - DATABASE_PORT=27017
     build:
         context: ./notes/
         dockerfile: Dockerfile
@@ -28,6 +33,28 @@ services:
     ports:
       - "8083:8083"
     restart: always
+    
+    
+    
+  dbpatient: 
+    image: mysql:8.0
+    environment: 
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=patient
+      - MYSQL_USER=admin_webpay
+      - MYSQL_PASSWORD=passw0rd
+    ports: 
+      - "3306:3306"
+    restart: always    
+    
+  dbnote: 
+    image: mongo
+    ports:
+      - "27017:27017"
+    restart: always
+    
+    
+  
  
     
   
