@@ -53,7 +53,7 @@ public class AssessmentService {
 					}
 					return "In Danger";
 				}
-				return "Bordeline";
+				return "Borderline";
 			}
 			
 		} else {
