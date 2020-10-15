@@ -18,7 +18,7 @@
 			<div class="form-group">
 				<label for="corps" class="col-sm-2 control-label">Corps</label>
 				<div class="col-sm-10">
-					<input type="text" th:field="*{corps}" id="corps" placeholder="Corps" class="col-4">
+				<textarea rows="4" cols="50" th:field="*{corps}" id="corps" placeholder="Corps" class="col-4"></textarea>
 					<p class="text-danger" th:if="${#fields.hasErrors('corps')}" th:errors="*{corps}"></p>
 				</div>
 			</div>
